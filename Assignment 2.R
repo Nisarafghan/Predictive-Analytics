@@ -15,6 +15,9 @@ titanic %>%
   select(embark_town) %>% 
   filter(complete.cases(.))
 
+titanic %>% 
+  mutate(survived = recode(survived, `1` = "Yes", `0` = "No"))
+
 # changing data type
 titanic$sex <- as.factor(titanic_data$sex)
 class(titanic_data$sex)
